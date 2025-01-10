@@ -11,7 +11,11 @@ describe('Orange HRM login', () => {
     genericField: ".oxd-input--active",
     dataField: "[placeholder='yyyy-dd-mm']",
     dataCloseButton: '.--close',
-    submitButton: "[type='submit']"
+    submitButton: "[type='submit']",
+    nationalityButton: "[data-v-67d2aedf='']",
+    selectionNationalityButton:'.oxd-select-dropdown > :nth-child(14)',
+    MaritalStatusButton: "[data-v-67d2aedf='']",
+    selectionMaritalStatuts: ".oxd-select-dropdown > :nth-child(3)",
 
 
     
@@ -44,6 +48,10 @@ describe('Orange HRM login', () => {
     cy.get(selectorsList.genericField).eq(5).clear().type('licensetest')
     cy.get(selectorsList.genericField).eq(6).clear().type('2025-01-08')
     cy.get(selectorsList.dataCloseButton).click()
+    cy.get(selectorsList.nationalityButton).eq(2).click()
+    cy.get(selectorsList.selectionNationalityButton).click()
+    cy.get(selectorsList.MaritalStatusButton).eq(6).click()
+    cy.get(selectorsList.selectionMaritalStatuts).click()
     cy.get(selectorsList.submitButton).eq(0).click()
     cy.get('body').should('contain','Successfully Updated')
   })
