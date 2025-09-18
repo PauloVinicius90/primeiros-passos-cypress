@@ -14,7 +14,7 @@ describe('Orange HRM Tests', () => {
   }
 
   it('Login Success', () => { // nome da verificação
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')// acesso a pagina que vai ser testada
+    cy.visit('/auth/login')// acesso a pagina que vai ser testada
     cy.get(selectorsList.usernameField).type(userData.userSuccess.username) //colocando onome do usuaario Admin
     cy.get(selectorsList.passwordField).type(userData.userSuccess.password) //colocando a senha admin123
     cy.get(selectorsList.loginButton).click() //clicando no botão login
@@ -22,7 +22,7 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorsList.dashboardGrid)// verifica a palavra dashbord
   })
   it('Login Fail', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('auth/login')
     cy.get(selectorsList.usernameField).type(userData.userfail.username)
     cy.get(selectorsList.passwordField).type(userData.userfail.password)
     cy.get(selectorsList.loginButton).click() 
